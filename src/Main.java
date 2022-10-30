@@ -1,6 +1,9 @@
 import java.time.LocalDate;
 
+import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Conteudo;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 public class Main{
@@ -20,8 +23,43 @@ public class Main{
         mentoria.setDescricao("descricao mentoria java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);
+        //System.out.println(curso1);
+        //System.out.println(curso2);
+        //System.out.println(mentoria);
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcampo Java Developer");
+        bootcamp.setDescricao("Descrição Bootcampo Java");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila Soares");
+        devCamila.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Camila" + devCamila.getConteudoInscritos());
+        devCamila.progredir();     
+        devCamila.progredir();     
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Camila" + devCamila.getConteudoInscritos());
+        System.out.println("Conteúdos concluidos Camila" + devCamila.getConteudosConcluidos());   
+        System.out.println("XP: " + devCamila.calcularXp());     
+        
+        System.out.println("---------");
+        
+        Dev devJuarez = new Dev();
+        devJuarez.setNome("Juarez Souza");
+        devJuarez.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Juarez" + devJuarez.getConteudoInscritos());
+        devJuarez.progredir();
+        devJuarez.progredir();
+        devJuarez.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Juarez" + devJuarez.getConteudoInscritos());
+        System.out.println("Conteúdos concluidos Juarez" + devJuarez.getConteudosConcluidos());        
+        System.out.println("XP: " + devJuarez.calcularXp());     
+        
+        
+        
     }
 }
